@@ -1,0 +1,58 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title> Subnet Calculator for Microsoft Azure </title>
+    <form action="/" METHOD="POST">
+        <span class="label" for="inserted_ip">Input an IPv4 address:</span>
+        <input type="text" class="input" id="inserted_ip" name="inserted_ip" placeholder="Ex. 192.168.10.0" value="">
+        <span class="label" for="inserted_prefix">Base prefix length:</span>
+        <input type="text" class="input" id="inserted_prefix" name="inserted_prefix" placeholder="Ex. 16" value="">
+        <input type="Submit" value="Submit " class="button">
+    </form>
+    <input type="submit" value="Reset current configuration" class="buttonone" onclick="location.href='/delete/';">
+</head>
+
+<body>
+    <table class="subnet-table" border="1">
+        <thead>
+            <tr>
+                <td>Subnet Address</td>
+                <td>Range of Addressess</td>
+                <td>Useable IP's</td>
+                <td>Hosts</td>
+                <td>Divide</td>
+                <td>Insert Comment</td>
+                <td>Comment</td>
+                <td>Join</td>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for ip in showIP %}
+            <td>{{ ip.subnet_address }}</td>
+            <td>{{ ip.adress_range }}</td>
+            <td>{{ ip.useable_ip }}</td>
+            <td>{{ ip.total_hosts }}</td>
+            <td><a href="/divide/{{ ip.id }}" class="btn btn-outline-danger btn-sm">Divide</a></td>
+            <form action="/comment/{{ip.id}}" METHOD="POST">
+                <td><input type="text" id="comment" name="comment" placeholder=""><input type="submit" value="Submit">
+                </td>
+            </form>
+            <td>{{ ip.comment }}</td>
+            {% if ip.counter == 1 %}
+            <td><a href="/merge/{{ ip.id }}" class="btn btn-outline-danger btn-sm"> /{{ ip.prefix }}</a></td>
+            {% else %}
+            <td></td>
+            {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <input type="submit" value="Extract current table to Excel " class="buttonone"
+        onclick="location.href='/download/';">
+</body>
+
+</html>

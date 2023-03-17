@@ -1,0 +1,84 @@
+
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Roboto', sans-serif;
+letter-spacing: 0,5px;
+}
+
+.label {
+    font-size: 14px;
+    color: black;
+    padding: 8px;
+    margin-top: 15px;
+}
+
+.input {
+    font-size: 13px;
+    width: auto;
+    margin-top: 15px; 
+}
+
+
+.button {
+    font-size: 13px;
+    
+}
+.buttonone {
+    font-size: 13px;
+    margin-left: 8px;
+    margin-top: 5px;
+    
+}
+
+
+body {
+    background-color: whitesmoke;
+}
+
+.subnet-table{
+    empty-cells: hide;
+    border-collapse:collapse;
+    width:auto;
+    background-color: white;
+    border-radius:5px;
+    box-shadow: 0px 10px 30px 5px rgba(0,0,0,.15);
+    margin-left: 8px;
+    margin-top: 15px;
+}
+
+.subnet-table thead tr{
+    text-align: center;
+    border-bottom: 1px dashed grey;
+
+}
+
+.subnet-table thead tr td{
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: gray;
+    padding: 8px;
+}
+
+.subnet-table tbody tr td{
+    width:fit-content;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: black;
+    padding: 5px;
+
+    
+}
+
+.subnet-table tbody tr:nth-child(odd) {
+    background-color: whitesmoke;
+}
+
+
+.subnet-table tbody tr:hover{
+    background-color: lightgray;
+}
+
+
